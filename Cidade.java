@@ -1,5 +1,3 @@
-package model;
-
 public class Cidade {
 	private int idCidade;
 	private String nomeCidade;

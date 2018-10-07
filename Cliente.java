@@ -1,12 +1,11 @@
-package model;
-
 import java.util.ArrayList;
 import java.lang.StringBuffer;
 
-public class Hotel {
-	private int idHotel;
-	private String nomeHotel;
-	private String cnpjHotel;
+public class Cliente {
+	private int idCliente;
+	private String nomeCliente;
+	private String cpfCliente;
+	private String rgCliente;
 	private Endereco endereco = new Endereco();
 	private ArrayList<Telefone> telefones = new ArrayList<Telefone>();
 	private ArrayList<Email> emails = new ArrayList<Email>();
@@ -29,23 +28,29 @@ public class Hotel {
 	public void addEmail(Email email) {
 		this.emails.add(email);
 	}
-	public int getIdHotel() {
-		return idHotel;
+	public int getIdCliente() {
+		return idCliente;
 	}
-	public void setIdHotel(int idHotel) {
-		this.idHotel = idHotel;
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
 	}
-	public String getNomeHotel() {
-		return nomeHotel;
+	public String getNomeCliente() {
+		return nomeCliente;
 	}
-	public void setNomeHotel(String nomeHotel) {
-		this.nomeHotel = nomeHotel;
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
-	public String getCnpjHotel() {
-		return cnpjHotel;
+	public String getRgCliente() {
+		return this.rgCliente;
 	}
-	public void setCnpjHotel(String cnpjHotel) {
-		this.cnpjHotel = cnpjHotel;
+	public void setRgCliente(String rgCliente) {
+		this.rgCliente = rgCliente;
+	}
+	public String getCpfCliente() {
+		return cpfCliente;
+	}
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
 	}
 	public Endereco getEndereco() {
 		return endereco;
@@ -65,9 +70,11 @@ public class Hotel {
 
 	public String toString(){
 		StringBuffer retorno = new StringBuffer("Nome: ");
-		retorno.append(this.nomeHotel);
-		retorno.append("\nCnpj: ");
-		retorno.append(this.cnpjHotel);
+		retorno.append(this.nomeCliente);
+		retorno.append("\nCpf: ");
+		retorno.append(this.cpfCliente);
+		retorno.append("\nRg: ");
+		retorno.append(this.rgCliente);
 		retorno.append("\n");
 		retorno.append(endereco.toString());
 

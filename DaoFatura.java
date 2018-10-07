@@ -26,6 +26,29 @@ public class DaoFatura{
 		}
 	}
 
+	public Cliente consultarIdCliente(int cpfCliente){
+
+		conectar();
+		ResultSet rs;
+
+		String comando = "select idCliente from cliente where cpfCliente = "+cpfCliente+";";
+		Cliente cli = null;
+
+		try{
+			rs = st.executeQuery(comando);
+			if(rs.next()){
+				cli = new Cliente();
+				cli.setIdCliente(rs.getInt("idCliente"));
+				cli.setNomeCliente(rs.getString("nomeCliente"));
+			}
+		}catch(SQLException e){
+			System.out.println("Erro ao consultar:"+ e.getMessage());
+		}finally{
+			desconectar();
+		}
+		return cli;
+	}
+
 	public Vector <Transacao> listarTransacoes(int codFatura){
 		conectar();
 		ResultSet rs;
@@ -47,32 +70,27 @@ public class DaoFatura{
 		}
 		return resultados;
 	}
-
-	public Cliente consultarIdCliente(int cpfCliente){
-
+	
+	public Vector <Hotel> listarHoteisReservados(int codCliente){
 		conectar();
 		ResultSet rs;
-
-		String comando = "select idCliente from cliente where cpfCliente = "+cpfCliente+";";
-		Cliente cli = null;
-
+		Vector<Hotel> resultados = new Vector<Hotel>();
 		try{
-			rs = st.executeQuery(comando);
-			if(rs.next()){
-				cli = new Cliente();
-				cli.setIdCliente(rs.getInt("idCliente"));
-				cli.setNomeCliente(rs.getInt("nomeCliente"));
+			rs = st.executeQuery("");
+			while(rs.next()){
+				Hotel hot = new Hotel();
+				hot.setNomeHotel(rs.getString("nomeHotel"));
+				hot.setCheckin(rs.getString("dataInicioReserva"));
+				hot.setCheckout(rs.getString("dataFinalReserva"));
+				hot.setTotal(rs.getDouble("precoHotel"));
+				resultados.add(hot);
 			}
 		}catch(SQLException e){
-			System.out.println("Erro ao consultar:"+ e.getMessage());
+			System.out.println("Erro ao executar:"+ e.getMessage());
 		}finally{
 			desconectar();
 		}
-		return cli;
-	}
-
-	public Vector <Transacao> listarHoteisReservados(int codCliente){
-
+		return resultados;
 	}
 
 	public Vector <Transacao> listarPasseiosReservados(int codCliente){
@@ -82,4 +100,5 @@ public class DaoFatura{
 	public Vector <Transacao> listarPassagensReservadas(int codCliente){
 
 	}
+	*/
 }

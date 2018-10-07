@@ -1,5 +1,3 @@
-package model;
-
 public class Bairro {
 	private int idBairro;
 	private String nomeBairro;

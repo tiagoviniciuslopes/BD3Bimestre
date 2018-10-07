@@ -3,11 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.lang.StringBuffer;
 
-public class Cliente {
-	private int idCliente;
-	private String nomeCliente;
-	private String cpfCliente;
-	private String rgCliente;
+public class Hotel {
+	private int idHotel;
+	private String nomeHotel;
+	private String checkin;
+	private String checkout;
+	private double total;
+	private String cnpjHotel;
+				hot.setDataTransacao(rs.getString("dataTransacao"));
+				hot.setNomeEmpresa(rs.getString("nomeEmpresa"));
+				hot.setValorTransacao(rs.getDouble("valorTransacao"));
 	private Endereco endereco = new Endereco();
 	private ArrayList<Telefone> telefones = new ArrayList<Telefone>();
 	private ArrayList<Email> emails = new ArrayList<Email>();
@@ -30,29 +35,41 @@ public class Cliente {
 	public void addEmail(Email email) {
 		this.emails.add(email);
 	}
-	public int getIdCliente() {
-		return idCliente;
+	public int getIdHotel() {
+		return idHotel;
 	}
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	public void setIdHotel(int idHotel) {
+		this.idHotel = idHotel;
 	}
-	public String getNomeCliente() {
-		return nomeCliente;
+	public String getNomeHotel() {
+		return nomeHotel;
 	}
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setNomeHotel(String nomeHotel) {
+		this.nomeHotel = nomeHotel;
 	}
-	public String getRgCliente() {
-		return this.rgCliente;
+	public String getCnpjHotel() {
+		return cnpjHotel;
 	}
-	public void setRgCliente(String rgCliente) {
-		this.rgCliente = rgCliente;
+	public void setCheckin(String checkin) {
+		this.checkin = checkin;
 	}
-	public String getCpfCliente() {
-		return cpfCliente;
+	public String getCheckin() {
+		return checkin;
 	}
-	public void setCpfCliente(String cpfCliente) {
-		this.cpfCliente = cpfCliente;
+	public void setCheckout(String checkout) {
+		this.checkout = checkout;
+	}
+	public String getCheckout() {
+		return checkout;
+	}
+	public void setTotal(double total) {
+		this.total = total;
+	}
+	public double getTotal() {
+		return total;
+	}
+	public void setCnpjHotel(String cnpjHotel) {
+		this.cnpjHotel = cnpjHotel;
 	}
 	public Endereco getEndereco() {
 		return endereco;
@@ -72,11 +89,9 @@ public class Cliente {
 
 	public String toString(){
 		StringBuffer retorno = new StringBuffer("Nome: ");
-		retorno.append(this.nomeCliente);
-		retorno.append("\nCpf: ");
-		retorno.append(this.cpfCliente);
-		retorno.append("\nRg: ");
-		retorno.append(this.rgCliente);
+		retorno.append(this.nomeHotel);
+		retorno.append("\nCnpj: ");
+		retorno.append(this.cnpjHotel);
 		retorno.append("\n");
 		retorno.append(endereco.toString());
 
