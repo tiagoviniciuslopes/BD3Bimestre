@@ -108,7 +108,7 @@ CREATE TABLE `cliente` (
   UNIQUE KEY `idcliente_UNIQUE` (`idCliente`),
   KEY `fk_cliente_enderecoEspecifico1_idx` (`enderecoEspecifico_idEnderecoEspecifico`),
   CONSTRAINT `fk_cliente_enderecoEspecifico1` FOREIGN KEY (`enderecoEspecifico_idEnderecoEspecifico`) REFERENCES `enderecoespecifico` (`idEnderecoEspecifico`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'Tiago Pereira','097.228.799-01','9.766.425-0',1);
+INSERT INTO `cliente` VALUES (1,'Tiago Pereira','097.228.799-01','9.766.425-0',1),(2,'Echeley','999.999.777-02','1.123.444-3',2);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +148,7 @@ CREATE TABLE `clientehotel` (
 
 LOCK TABLES `clientehotel` WRITE;
 /*!40000 ALTER TABLE `clientehotel` DISABLE KEYS */;
-INSERT INTO `clientehotel` VALUES (1,1,'08/01/2019','15/01/2019',384.6);
+INSERT INTO `clientehotel` VALUES (1,1,'08/01/2019','15/01/2019',384.6),(2,1,'08/01/2019','15/01/2019',384.6);
 /*!40000 ALTER TABLE `clientehotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `clientepassagem` (
 
 LOCK TABLES `clientepassagem` WRITE;
 /*!40000 ALTER TABLE `clientepassagem` DISABLE KEYS */;
-INSERT INTO `clientepassagem` VALUES (1,1,579.99);
+INSERT INTO `clientepassagem` VALUES (1,1,579.99),(2,2,579.99);
 /*!40000 ALTER TABLE `clientepassagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +207,7 @@ CREATE TABLE `clientepasseio` (
 
 LOCK TABLES `clientepasseio` WRITE;
 /*!40000 ALTER TABLE `clientepasseio` DISABLE KEYS */;
-INSERT INTO `clientepasseio` VALUES (1,1,'08/01/2019',80);
+INSERT INTO `clientepasseio` VALUES (1,1,'08/01/2019',80),(2,1,'10/01/2019',70),(2,2,'08/01/2019',90);
 /*!40000 ALTER TABLE `clientepasseio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,7 +324,7 @@ CREATE TABLE `enderecoespecifico` (
 
 LOCK TABLES `enderecoespecifico` WRITE;
 /*!40000 ALTER TABLE `enderecoespecifico` DISABLE KEYS */;
-INSERT INTO `enderecoespecifico` VALUES (1,'23','85867-530',NULL,1),(2,'730','88888-555',NULL,2);
+INSERT INTO `enderecoespecifico` VALUES (1,'23','85867-530',NULL,1),(2,'730','88888-555','Ao lado da farmacia',1);
 /*!40000 ALTER TABLE `enderecoespecifico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -456,7 +456,7 @@ CREATE TABLE `passagem` (
   CONSTRAINT `fk_passagem_ciaAerea1` FOREIGN KEY (`ciaAerea_idCiaAerea`) REFERENCES `ciaaerea` (`idCiaAerea`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_passagem_cidade1` FOREIGN KEY (`cidadeOrigem`) REFERENCES `cidade` (`idCidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_passagem_cidade2` FOREIGN KEY (`cidadeDestino`) REFERENCES `cidade` (`idCidade`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -465,7 +465,7 @@ CREATE TABLE `passagem` (
 
 LOCK TABLES `passagem` WRITE;
 /*!40000 ALTER TABLE `passagem` DISABLE KEYS */;
-INSERT INTO `passagem` VALUES (1,'08/01/2019','00:45',0,'A-0001',1,1,2);
+INSERT INTO `passagem` VALUES (1,'08/01/2019','00:45',0,'A-0001',1,1,2),(2,'08/01/2019','00:45',0,'A-0002',1,1,2);
 /*!40000 ALTER TABLE `passagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -481,7 +481,7 @@ CREATE TABLE `passeio` (
   `nomePasseio` varchar(45) NOT NULL,
   PRIMARY KEY (`idPasseio`),
   UNIQUE KEY `idPasseio_UNIQUE` (`idPasseio`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -490,7 +490,7 @@ CREATE TABLE `passeio` (
 
 LOCK TABLES `passeio` WRITE;
 /*!40000 ALTER TABLE `passeio` DISABLE KEYS */;
-INSERT INTO `passeio` VALUES (1,'Prospect Park');
+INSERT INTO `passeio` VALUES (1,'Prospect Park'),(2,'Brighton Beach');
 /*!40000 ALTER TABLE `passeio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -583,4 +583,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-07 20:39:43
+-- Dump completed on 2018-10-07 21:05:08
