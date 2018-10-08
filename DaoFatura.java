@@ -26,12 +26,12 @@ public class DaoFatura{
 		}
 	}
 
-	public Cliente consultarIdCliente(int cpfCliente){
+	public Cliente consultarIdCliente(String cpfCliente){
 
 		conectar();
 		ResultSet rs;
 
-		String comando = "select idCliente from cliente where cpfCliente = "+cpfCliente+";";
+		String comando = "select idCliente,nomeCliente from cliente where cpfCliente = '"+cpfCliente+"';";
 		Cliente cli = null;
 
 		try{
@@ -49,28 +49,6 @@ public class DaoFatura{
 		return cli;
 	}
 
-	public Vector <Transacao> listarTransacoes(int codFatura){
-		conectar();
-		ResultSet rs;
-		Vector<Transacao> resultados = new Vector<Transacao>();
-		try{
-			rs = st.executeQuery("select * from transacao inner join fatura on Fatura_idFatura = idFatura inner join cataodecredito on CataoDeCredito_idCataoDeCredito = idCataoDeCredito inner join empresa on Empresa_idEmpresa = idEmpresa where idFatura = "+codFatura+";");
-			while(rs.next()){
-				Transacao trans = new Transacao();
-				trans.setIdTransacao(rs.getInt("idTransacao"));
-				trans.setDataTransacao(rs.getString("dataTransacao"));
-				trans.setNomeEmpresa(rs.getString("nomeEmpresa"));
-				trans.setValorTransacao(rs.getDouble("valorTransacao"));
-				resultados.add(trans);
-			}
-		}catch(SQLException e){
-			System.out.println("Erro ao executar:"+ e.getMessage());
-		}finally{
-			desconectar();
-		}
-		return resultados;
-	}
-	
 	public Vector <Hotel> listarHoteisReservados(int codCliente){
 		conectar();
 		ResultSet rs;
@@ -93,10 +71,29 @@ public class DaoFatura{
 		return resultados;
 	}
 
-	public Vector <Transacao> listarPasseiosReservados(int codCliente){
-
+	public Vector <Passeio> listarPasseiosReservados(int codCliente){
+		conectar();
+		ResultSet rs;
+		Vector<Passeio> resultados = new Vector<Passeio>();
+		try{
+			rs = st.executeQuery("");
+			while(rs.next()){
+				Passeio pass = new Passeio();
+				pass.setNomePasseio(rs.getString("setNomePasseio"));
+				/*
+				pass.setDataPasseio(rs.getString("nomeHotel"));
+				pass.setTotal(rs.getDouble("nomeHotel"));
+				*/
+				resultados.add(pass);
+			}
+		}catch(SQLException e){
+			System.out.println("Erro ao executar:"+ e.getMessage());
+		}finally{
+			desconectar();
+		}
+		return resultados;
 	}
-
+	/*
 	public Vector <Transacao> listarPassagensReservadas(int codCliente){
 
 	}

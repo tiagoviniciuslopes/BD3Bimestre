@@ -1,5 +1,3 @@
-package model;
-
 import java.util.ArrayList;
 import java.lang.StringBuffer;
 
@@ -10,9 +8,6 @@ public class Hotel {
 	private String checkout;
 	private double total;
 	private String cnpjHotel;
-				hot.setDataTransacao(rs.getString("dataTransacao"));
-				hot.setNomeEmpresa(rs.getString("nomeEmpresa"));
-				hot.setValorTransacao(rs.getDouble("valorTransacao"));
 	private Endereco endereco = new Endereco();
 	private ArrayList<Telefone> telefones = new ArrayList<Telefone>();
 	private ArrayList<Email> emails = new ArrayList<Email>();
