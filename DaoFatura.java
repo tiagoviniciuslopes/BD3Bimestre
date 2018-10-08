@@ -97,11 +97,11 @@ public class DaoFatura{
 		ResultSet rs;
 		Vector<Passagem> resultados = new Vector<Passagem>();
 		try{
-			rs = st.executeQuery("");
+			rs = st.executeQuery("SELECT * FROM clientepassagem inner join passagem on passagem_idPassagem = idPassagem inner join ciaaerea on ciaAerea_idCiaAerea = idCiaAerea inner join cidade as origem on origem.idCidade = cidadeOrigem inner join cidade as destino on destino.idCidade = cidadeDestino inner join cliente on cliente_idCliente = idCliente where idCliente = "+codCliente);
 			while(rs.next()){
 				Passagem pasg = new Passagem();
-				pasg.setOrigem(rs.getString("precoPassagem"));
-				pasg.setDestino(rs.getString("precoPassagem"));
+				pasg.setOrigem(rs.getString("origem.nomeCidade"));
+				pasg.setDestino(rs.getString("destino.nomeCidade"));
 				pasg.setCiaAerea(rs.getString("nomeCiaAerea"));
 				pasg.setData(rs.getString("dataPassagem"));
 				pasg.setHora(rs.getString("horaPassagem"));
