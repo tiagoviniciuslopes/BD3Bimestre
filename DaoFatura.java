@@ -54,7 +54,7 @@ public class DaoFatura{
 		ResultSet rs;
 		Vector<Hotel> resultados = new Vector<Hotel>();
 		try{
-			rs = st.executeQuery("");
+			rs = st.executeQuery("SELECT * FROM clientehotel inner join hotel on idHotel = hotel_idHotel where cliente_idCliente = "+codCliente);
 			while(rs.next()){
 				Hotel hot = new Hotel();
 				hot.setNomeHotel(rs.getString("nomeHotel"));
