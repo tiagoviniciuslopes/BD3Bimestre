@@ -36,7 +36,6 @@ public class ControllerFatura{
 
 		Vector <Passeio> pass = daoFatura.listarPasseiosReservados(cli.getIdCliente());
 		iter = pass.iterator();
-
 		System.out.println("\n*--------------[ Passeios ]-------------*");
 		while(iter.hasNext()){
 			Passeio item = (Passeio)iter.next();

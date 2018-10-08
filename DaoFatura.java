@@ -102,7 +102,7 @@ public class DaoFatura{
 				Passagem pasg = new Passagem();
 				pasg.setOrigem(rs.getString("origem.nomeCidade"));
 				pasg.setDestino(rs.getString("destino.nomeCidade"));
-				pasg.setCiaAerea(rs.getString("nomeCiaAerea"));
+				pasg.setCiaAerea(rs.getString("nomeCiaArea"));
 				pasg.setData(rs.getString("dataPassagem"));
 				pasg.setHora(rs.getString("horaPassagem"));
 				pasg.setTotal(rs.getDouble("precoPassagem"));
