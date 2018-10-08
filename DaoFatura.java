@@ -76,7 +76,7 @@ public class DaoFatura{
 		ResultSet rs;
 		Vector<Passeio> resultados = new Vector<Passeio>();
 		try{
-			rs = st.executeQuery("");
+			rs = st.executeQuery("SELECT * FROM clientepasseio inner join passeio on passeio_idPasseio = idPasseio where cliente_idCliente = "+codCliente);
 			while(rs.next()){
 				Passeio pass = new Passeio();
 				pass.setNomePasseio(rs.getString("nomePasseio"));
@@ -100,9 +100,9 @@ public class DaoFatura{
 			rs = st.executeQuery("");
 			while(rs.next()){
 				Passagem pasg = new Passagem();
-				pasg.setOrigem(rs.getString("nomePasseio"));
-				pasg.setDestino(rs.getString("nomePasseio"));
-				pasg.setCiaAerea(rs.getString("precoPassagem"));
+				pasg.setOrigem(rs.getString("precoPassagem"));
+				pasg.setDestino(rs.getString("precoPassagem"));
+				pasg.setCiaAerea(rs.getString("nomeCiaAerea"));
 				pasg.setData(rs.getString("dataPassagem"));
 				pasg.setHora(rs.getString("horaPassagem"));
 				pasg.setTotal(rs.getDouble("precoPassagem"));

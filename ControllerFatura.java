@@ -9,18 +9,6 @@ public class ControllerFatura{
 		daoFatura = new DaoFatura();
 	}
 
-	public String dataSqlToString(String sqlDate){
-		String dataTraduzida = null;
-		try{
-			Date date = new SimpleDateFormat("yyyy-MM-dd").parse(sqlDate);
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			dataTraduzida = df.format(date);
-	    } catch (ParseException e) {
-	    	System.out.println("Erro de conversão de Data");
-	    }
-	    return dataTraduzida;
-	}
-
 	public void consultar() {
 
 		Scanner scanner = new Scanner(System.in);
@@ -40,8 +28,8 @@ public class ControllerFatura{
 			Hotel item = (Hotel)iter.next();
 			System.out.println("\n{ "+item.getNomeHotel()+" }");
 			System.out.println("*---------------------------");
-			System.out.println("| Check-in: "+dataSqlToString(item.getCheckin()));
-			System.out.println("| Check-out: "+dataSqlToString(item.getCheckout()));
+			System.out.println("| Check-in: "+item.getCheckin());
+			System.out.println("| Check-out: "+item.getCheckout());
 			System.out.println("| Valor: R$ "+(String) String.format("%.2f", item.getTotal()));
 			System.out.println("*---------------------------");
 		}
@@ -55,7 +43,7 @@ public class ControllerFatura{
 			System.out.println("\n{ "+item.getNomePasseio()+" }");
 			System.out.println("*---------------------------");
 			System.out.println("| Data: "+item.getDataPasseio());
-			System.out.println("| Valor: R$ "+item.getTotal());
+			System.out.println("| Valor: R$ "+(String) String.format("%.2f", item.getTotal()));
 			System.out.println("*---------------------------");
 		}
 
