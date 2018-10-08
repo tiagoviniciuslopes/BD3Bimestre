@@ -57,8 +57,8 @@ public class ControllerFatura{
 			System.out.println("*---------------------------");
 		}
 
-		Vector <Passeio> pass = daoFatura.listarPasseiosReservados(cli.getIdCliente());
-		iter = pass.iterator();
+		Vector <Passagem> pasg = daoFatura.listarPassagensReservadas(cli.getIdCliente());
+		iter = pasg.iterator();
 		while(iter.hasNext()){
 			System.out.println("\n*--------------[ Passagens Aéreas ]-------------*");
 			System.out.println("\n{ Foz-Sao Paulo }");

@@ -93,9 +93,8 @@ public class DaoFatura{
 		}
 		return resultados;
 	}
-	/*
-	public Vector <Transacao> listarPassagensReservadas(int codCliente){
+
+	public Vector <Passagem> listarPassagensReservadas(int codCliente){
 
 	}
-	*/
 }
