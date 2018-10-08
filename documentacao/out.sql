@@ -26,7 +26,7 @@ CREATE TABLE `bairro` (
   `idBairro` int(11) NOT NULL AUTO_INCREMENT,
   `nomeBairro` varchar(45) NOT NULL,
   PRIMARY KEY (`idBairro`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `bairro` (
 
 LOCK TABLES `bairro` WRITE;
 /*!40000 ALTER TABLE `bairro` DISABLE KEYS */;
-INSERT INTO `bairro` VALUES (1,'Belvedere'),(2,'Brooklyn');
+INSERT INTO `bairro` VALUES (1,'Belvedere'),(2,'Brooklyn'),(3,'Canyon Gate');
 /*!40000 ALTER TABLE `bairro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ CREATE TABLE `ciaaerea` (
   `nomeCiaArea` varchar(45) NOT NULL,
   `cnpjCiaAerea` varchar(45) NOT NULL,
   PRIMARY KEY (`idCiaAerea`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `ciaaerea` (
 
 LOCK TABLES `ciaaerea` WRITE;
 /*!40000 ALTER TABLE `ciaaerea` DISABLE KEYS */;
-INSERT INTO `ciaaerea` VALUES (1,'GOL','07.575.651/0001-59');
+INSERT INTO `ciaaerea` VALUES (1,'GOL','07.575.651/0001-59'),(2,'Delta Air','01.455.121/0001-80');
 /*!40000 ALTER TABLE `ciaaerea` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +78,7 @@ CREATE TABLE `cidade` (
   PRIMARY KEY (`idCidade`),
   KEY `fk_cidade_estado1_idx` (`estado_idEstado`),
   CONSTRAINT `fk_cidade_estado1` FOREIGN KEY (`estado_idEstado`) REFERENCES `estado` (`idEstado`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `cidade` (
 
 LOCK TABLES `cidade` WRITE;
 /*!40000 ALTER TABLE `cidade` DISABLE KEYS */;
-INSERT INTO `cidade` VALUES (1,'Foz do Iguacu',1),(2,'New York',2);
+INSERT INTO `cidade` VALUES (1,'Foz do Iguacu',1),(2,'New York',2),(3,'Las Vegas',3);
 /*!40000 ALTER TABLE `cidade` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +117,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'Tiago Pereira','097.228.799-01','9.766.425-0',1),(2,'Echeley','999.999.777-02','1.123.444-3',2);
+INSERT INTO `cliente` VALUES (1,'Tiago Pereira','097.228.799-01','9.766.425-0',1),(2,'Victor Hugo','999.999.777-02','1.123.444-3',2);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +148,7 @@ CREATE TABLE `clientehotel` (
 
 LOCK TABLES `clientehotel` WRITE;
 /*!40000 ALTER TABLE `clientehotel` DISABLE KEYS */;
-INSERT INTO `clientehotel` VALUES (1,1,'08/01/2019','15/01/2019',384.6),(2,1,'08/01/2019','15/01/2019',384.6);
+INSERT INTO `clientehotel` VALUES (1,1,'08/01/2019','15/01/2019',384.6),(2,2,'08/01/2019','15/01/2019',485.99);
 /*!40000 ALTER TABLE `clientehotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,7 +177,7 @@ CREATE TABLE `clientepassagem` (
 
 LOCK TABLES `clientepassagem` WRITE;
 /*!40000 ALTER TABLE `clientepassagem` DISABLE KEYS */;
-INSERT INTO `clientepassagem` VALUES (1,1,579.99),(2,2,579.99);
+INSERT INTO `clientepassagem` VALUES (1,1,579.99),(2,2,389.99);
 /*!40000 ALTER TABLE `clientepassagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +207,7 @@ CREATE TABLE `clientepasseio` (
 
 LOCK TABLES `clientepasseio` WRITE;
 /*!40000 ALTER TABLE `clientepasseio` DISABLE KEYS */;
-INSERT INTO `clientepasseio` VALUES (1,1,'08/01/2019',80),(2,1,'10/01/2019',70),(2,2,'08/01/2019',90);
+INSERT INTO `clientepasseio` VALUES (1,1,'08/01/2019',80),(1,2,'10/01/2019',70),(2,3,'08/01/2019',90),(2,4,'09/01/2019',110);
 /*!40000 ALTER TABLE `clientepasseio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +226,7 @@ CREATE TABLE `emailcliente` (
   UNIQUE KEY `idEmailCliente_UNIQUE` (`idEmailCliente`),
   KEY `fk_emailCliente_cliente1_idx` (`cliente_idCliente`),
   CONSTRAINT `fk_emailCliente_cliente1` FOREIGN KEY (`cliente_idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,7 +235,7 @@ CREATE TABLE `emailcliente` (
 
 LOCK TABLES `emailcliente` WRITE;
 /*!40000 ALTER TABLE `emailcliente` DISABLE KEYS */;
-INSERT INTO `emailcliente` VALUES (1,'tiago.foz@hotmail.com',1);
+INSERT INTO `emailcliente` VALUES (1,'tiago.foz@hotmail.com',1),(2,'victor.hugo@hotmail.com',2);
 /*!40000 ALTER TABLE `emailcliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +254,7 @@ CREATE TABLE `emailhotel` (
   UNIQUE KEY `idEmailCliente_UNIQUE` (`idEmailHotel`),
   KEY `fk_emailHotel_hotel1_idx` (`hotel_idHotel`),
   CONSTRAINT `fk_emailHotel_hotel1` FOREIGN KEY (`hotel_idHotel`) REFERENCES `hotel` (`idHotel`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +263,7 @@ CREATE TABLE `emailhotel` (
 
 LOCK TABLES `emailhotel` WRITE;
 /*!40000 ALTER TABLE `emailhotel` DISABLE KEYS */;
-INSERT INTO `emailhotel` VALUES (1,'brooklynhotel@brooklyn.com',1);
+INSERT INTO `emailhotel` VALUES (1,'brooklynhotel@brooklyn.com',1),(2,'vegashotel@vegas.com',2);
 /*!40000 ALTER TABLE `emailhotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +286,7 @@ CREATE TABLE `endereco` (
   CONSTRAINT `fk_enderecoCliente_bairro1` FOREIGN KEY (`bairro_idBairro`) REFERENCES `bairro` (`idBairro`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_enderecoCliente_cidade1` FOREIGN KEY (`cidade_idCidade`) REFERENCES `cidade` (`idCidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_enderecoCliente_rua1` FOREIGN KEY (`rua_idRua`) REFERENCES `rua` (`idRua`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -295,7 +295,7 @@ CREATE TABLE `endereco` (
 
 LOCK TABLES `endereco` WRITE;
 /*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
-INSERT INTO `endereco` VALUES (1,1,1,1),(2,2,2,2);
+INSERT INTO `endereco` VALUES (1,1,1,1),(2,2,2,2),(3,3,3,3);
 /*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,7 +324,7 @@ CREATE TABLE `enderecoespecifico` (
 
 LOCK TABLES `enderecoespecifico` WRITE;
 /*!40000 ALTER TABLE `enderecoespecifico` DISABLE KEYS */;
-INSERT INTO `enderecoespecifico` VALUES (1,'23','85867-530',NULL,1),(2,'730','88888-555','Ao lado da farmacia',1);
+INSERT INTO `enderecoespecifico` VALUES (1,'23','85867-530',NULL,1),(2,'730','88888-555','Ao lado da farmacia',2),(3,'500','77777-130',NULL,3);
 /*!40000 ALTER TABLE `enderecoespecifico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -342,7 +342,7 @@ CREATE TABLE `estado` (
   PRIMARY KEY (`idEstado`),
   KEY `fk_estado_pais1_idx` (`pais_idPais`),
   CONSTRAINT `fk_estado_pais1` FOREIGN KEY (`pais_idPais`) REFERENCES `pais` (`idPais`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -351,7 +351,7 @@ CREATE TABLE `estado` (
 
 LOCK TABLES `estado` WRITE;
 /*!40000 ALTER TABLE `estado` DISABLE KEYS */;
-INSERT INTO `estado` VALUES (1,'Parana',1),(2,'New York',2);
+INSERT INTO `estado` VALUES (1,'Parana',1),(2,'New York',2),(3,'Nevada',2);
 /*!40000 ALTER TABLE `estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -368,7 +368,7 @@ CREATE TABLE `hotel` (
   `cnpjHotel` varchar(20) NOT NULL,
   PRIMARY KEY (`idHotel`),
   UNIQUE KEY `idHotel_UNIQUE` (`idHotel`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -377,7 +377,7 @@ CREATE TABLE `hotel` (
 
 LOCK TABLES `hotel` WRITE;
 /*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
-INSERT INTO `hotel` VALUES (1,'Brooklyn Hotel','07.575.656/0001-70');
+INSERT INTO `hotel` VALUES (1,'Brooklyn Hotel','07.575.656/0001-70'),(2,'Vegas Hotel','08.555.555/0003-80');
 /*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -405,7 +405,7 @@ CREATE TABLE `hotelenderecoespecifico` (
 
 LOCK TABLES `hotelenderecoespecifico` WRITE;
 /*!40000 ALTER TABLE `hotelenderecoespecifico` DISABLE KEYS */;
-INSERT INTO `hotelenderecoespecifico` VALUES (1,2);
+INSERT INTO `hotelenderecoespecifico` VALUES (1,2),(2,3);
 /*!40000 ALTER TABLE `hotelenderecoespecifico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -465,7 +465,7 @@ CREATE TABLE `passagem` (
 
 LOCK TABLES `passagem` WRITE;
 /*!40000 ALTER TABLE `passagem` DISABLE KEYS */;
-INSERT INTO `passagem` VALUES (1,'08/01/2019','00:45',0,'A-0001',1,1,2),(2,'08/01/2019','00:45',0,'A-0002',1,1,2);
+INSERT INTO `passagem` VALUES (1,'08/01/2019','00:45',0,'A-0001',1,1,2),(2,'08/01/2019','13:25',0,'A-0002',2,2,3);
 /*!40000 ALTER TABLE `passagem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -481,7 +481,7 @@ CREATE TABLE `passeio` (
   `nomePasseio` varchar(45) NOT NULL,
   PRIMARY KEY (`idPasseio`),
   UNIQUE KEY `idPasseio_UNIQUE` (`idPasseio`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -490,7 +490,7 @@ CREATE TABLE `passeio` (
 
 LOCK TABLES `passeio` WRITE;
 /*!40000 ALTER TABLE `passeio` DISABLE KEYS */;
-INSERT INTO `passeio` VALUES (1,'Prospect Park'),(2,'Brighton Beach');
+INSERT INTO `passeio` VALUES (1,'Prospect Park'),(2,'Brighton Beach'),(3,'All American Park'),(4,'Canyon Gate Country Club');
 /*!40000 ALTER TABLE `passeio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -505,7 +505,7 @@ CREATE TABLE `rua` (
   `idRua` int(11) NOT NULL AUTO_INCREMENT,
   `nomeRua` varchar(45) NOT NULL,
   PRIMARY KEY (`idRua`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -514,7 +514,7 @@ CREATE TABLE `rua` (
 
 LOCK TABLES `rua` WRITE;
 /*!40000 ALTER TABLE `rua` DISABLE KEYS */;
-INSERT INTO `rua` VALUES (1,'Av Brasil'),(2,'Atlantic Ave');
+INSERT INTO `rua` VALUES (1,'Av Brasil'),(2,'Atlantic Ave'),(3,'S Buffalo Dr');
 /*!40000 ALTER TABLE `rua` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -533,7 +533,7 @@ CREATE TABLE `telefonecliente` (
   UNIQUE KEY `idTelefoneCliente_UNIQUE` (`idTelefoneCliente`),
   KEY `fk_telefoneCliente_cliente_idx` (`telefoneCliente_idCliente`),
   CONSTRAINT `fk_telefoneCliente_cliente` FOREIGN KEY (`telefoneCliente_idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -542,7 +542,7 @@ CREATE TABLE `telefonecliente` (
 
 LOCK TABLES `telefonecliente` WRITE;
 /*!40000 ALTER TABLE `telefonecliente` DISABLE KEYS */;
-INSERT INTO `telefonecliente` VALUES (1,'999940308',1);
+INSERT INTO `telefonecliente` VALUES (1,'999940308',1),(2,'998981313',2);
 /*!40000 ALTER TABLE `telefonecliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -561,7 +561,7 @@ CREATE TABLE `telefonehotel` (
   UNIQUE KEY `idTelefoneCliente_UNIQUE` (`idTelefoneHotel`),
   KEY `fk_telefoneHotel_hotel1_idx` (`hotel_idHotel`),
   CONSTRAINT `fk_telefoneHotel_hotel1` FOREIGN KEY (`hotel_idHotel`) REFERENCES `hotel` (`idHotel`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -570,7 +570,7 @@ CREATE TABLE `telefonehotel` (
 
 LOCK TABLES `telefonehotel` WRITE;
 /*!40000 ALTER TABLE `telefonehotel` DISABLE KEYS */;
-INSERT INTO `telefonehotel` VALUES (1,'8008-8080',1);
+INSERT INTO `telefonehotel` VALUES (1,'8008-8080',1),(2,'1313-1313',2);
 /*!40000 ALTER TABLE `telefonehotel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -583,4 +583,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-07 21:05:08
+-- Dump completed on 2018-10-07 22:42:27
