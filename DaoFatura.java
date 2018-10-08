@@ -104,7 +104,7 @@ public class DaoFatura{
 				pasg.setDestino(rs.getString("destino.nomeCidade"));
 				pasg.setCiaAerea(rs.getString("nomeCiaArea"));
 				pasg.setData(rs.getString("dataPassagem"));
-				pasg.setHora(rs.getString("horaPassagem"));
+				pasg.setHora(rs.getString("horarioPassagem"));
 				pasg.setTotal(rs.getDouble("precoPassagem"));
 				resultados.add(pasg);
 			}
