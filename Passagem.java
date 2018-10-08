@@ -3,6 +3,7 @@ public class Passagem {
 	private String destino;
 	private String data;
 	private String hora;
+	private String ciaAerea;
 	private double total;
 
 	public String getOrigem() {
@@ -28,6 +29,12 @@ public class Passagem {
 	}
 	public void setHora(String hora) {
 		this.hora = hora;
+	}
+	public String getCiaAerea() {
+		return ciaAerea;
+	}
+	public void setCiaAerea(String ciaAerea) {
+		this.ciaAerea = ciaAerea;
 	}
 	public double getTotal() {
 		return total;

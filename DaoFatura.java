@@ -79,11 +79,9 @@ public class DaoFatura{
 			rs = st.executeQuery("");
 			while(rs.next()){
 				Passeio pass = new Passeio();
-				pass.setNomePasseio(rs.getString("setNomePasseio"));
-				/*
-				pass.setDataPasseio(rs.getString("nomeHotel"));
-				pass.setTotal(rs.getDouble("nomeHotel"));
-				*/
+				pass.setNomePasseio(rs.getString("nomePasseio"));
+				pass.setDataPasseio(rs.getString("dataPasseio"));
+				pass.setTotal(rs.getDouble("precoPasseio"));
 				resultados.add(pass);
 			}
 		}catch(SQLException e){
@@ -95,6 +93,26 @@ public class DaoFatura{
 	}
 
 	public Vector <Passagem> listarPassagensReservadas(int codCliente){
-
+		conectar();
+		ResultSet rs;
+		Vector<Passagem> resultados = new Vector<Passagem>();
+		try{
+			rs = st.executeQuery("");
+			while(rs.next()){
+				Passagem pasg = new Passagem();
+				pasg.setOrigem(rs.getString("nomePasseio"));
+				pasg.setDestino(rs.getString("nomePasseio"));
+				pasg.setCiaAerea(rs.getString("precoPassagem"));
+				pasg.setData(rs.getString("dataPassagem"));
+				pasg.setHora(rs.getString("horaPassagem"));
+				pasg.setTotal(rs.getDouble("precoPassagem"));
+				resultados.add(pasg);
+			}
+		}catch(SQLException e){
+			System.out.println("Erro ao executar:"+ e.getMessage());
+		}finally{
+			desconectar();
+		}
+		return resultados;
 	}
 }

@@ -34,9 +34,10 @@ public class ControllerFatura{
 
 		Vector <Hotel> hotel = daoFatura.listarHoteisReservados(cli.getIdCliente());
 		Iterator iter = hotel.iterator();
+
+		System.out.println("\n*--------------[ Hotéis Reservados ]-------------*");
 		while(iter.hasNext()){
 			Hotel item = (Hotel)iter.next();
-			System.out.println("\n*--------------[ Hotéis Reservados ]-------------*");
 			System.out.println("\n{ "+item.getNomeHotel()+" }");
 			System.out.println("*---------------------------");
 			System.out.println("| Check-in: "+dataSqlToString(item.getCheckin()));
@@ -47,9 +48,10 @@ public class ControllerFatura{
 
 		Vector <Passeio> pass = daoFatura.listarPasseiosReservados(cli.getIdCliente());
 		iter = pass.iterator();
+
+		System.out.println("\n*--------------[ Passeios ]-------------*");
 		while(iter.hasNext()){
 			Passeio item = (Passeio)iter.next();
-			System.out.println("\n*--------------[ Passeios ]-------------*");
 			System.out.println("\n{ "+item.getNomePasseio()+" }");
 			System.out.println("*---------------------------");
 			System.out.println("| Data: "+item.getDataPasseio());
@@ -59,14 +61,15 @@ public class ControllerFatura{
 
 		Vector <Passagem> pasg = daoFatura.listarPassagensReservadas(cli.getIdCliente());
 		iter = pasg.iterator();
+		System.out.println("\n*--------------[ Passagens Aéreas ]-------------*");
 		while(iter.hasNext()){
-			System.out.println("\n*--------------[ Passagens Aéreas ]-------------*");
-			System.out.println("\n{ Foz-Sao Paulo }");
+			Passagem item = (Passagem)iter.next();
+			System.out.println("\n{ "+item.getOrigem()+"-"+item.getDestino()+" }");
 			System.out.println("*---------------------------");
-			System.out.println("| Cia Aérea: TAM");
-			System.out.println("| Data: 15/10/2010");
-			System.out.println("| Hora: 10:00");
-			System.out.println("| Valor: R$ 350");
+			System.out.println("| Cia Aérea: "+item.getCiaAerea());
+			System.out.println("| Data: "+item.getData());
+			System.out.println("| Hora: "+item.getHora());
+			System.out.println("| Valor: R$ "+item.getTotal());
 			System.out.println("*---------------------------");
 		}
 	}
